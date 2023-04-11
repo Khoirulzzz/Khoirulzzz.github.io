@@ -528,13 +528,6 @@ let url = document.getElementById("linkUrl");
  
  // ############# KALAU KAMU PAKAI HOSTING GK PERLU LAKUKAN INI, CUKUP BIKIN CLASS UNTUK QUERY DATABASE KAMU #############
  
- // cara ini hanya untuk natif atau untuk bukaolshop
-function cetak_data() {
-   nama = document.getElementById("nama_barang").innerHTML;
-   harga = document.getElementById("harga_barang").innerHTML;
-   url_barang = document.getElementById("url_barang").href;
-   let nomorInputan = document.getElementById("nomor").value.replace(/\s+/g, '');
-   let operator =document.getElementById("operatorPulsa").innerHTML;
    
    // jika nomor tidak terdeteksi kasih hasil respon kosong disemua data
    if (nomorInputan == []|| nomorInputan== null || nomorInputan == 08) {
