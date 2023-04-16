@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pulsa Transfer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <style type="text/css" media="all">
+  #alertDeskripsi{
+    color: red;
+  font-size: 12px;
+  }
+    .header{
+      width: 100%;
+      height: auto;
+      padding: 10px;
+    }
+    .bg_header{
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0px 0px 1px 1px rgba(18,17,17,0.117);
+      margin-bottom: 10px;
+      
+    }
+    .bg_header form{
+      width: 100%;
+      height: auto;
+    }
+    .bg_header p{
+      font-size: 14px;
+      margin-top: 10px;
+      padding-top:5px;
+      padding-bottom: 5px;
+      margin-bottom: 0;
+      opacity: 0.8;
+    }
+    .bg_header input{
+      outline: none;
+      border: none;
+      border-bottom: 2px solid #26a69a;
+      margin-bottom: 10px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .bg_header select{
+      width: 100%;
+      border: none;
+      text-align: left;
+      background-color:white ;
+      outline: none;
+      font-size: 18px;
+      padding: 10px;
+    }
+    #card-img-operator{
+      border-radius: 5px;
+      background-color:#26a69a ;
+    }
+#selected{
+  border: 0;
+  font-weight: normal;
+  opacity: 1;
+  color: black;
+}
+.list-group li{
+  padding: 15px;
+}
+.list-group span{
+  padding: 10px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  background-color: #26a69a;
+}
+#offcanvasBottom{
+  top: 45%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.offcanvas-header{
+  border-bottom: 1px solid rgb(210,210,210);
+}
+.body_konten_offcanvas{
+  width: 100%;
+  height: auto;
+  padding-bottom: 5px;
+}
+.body_konten_offcanvas h1{
+  width: 50%;
+  float: left;
+  font-size: 16px;
+  opacity: 0.8;
+  
+}
+.body_konten_offcanvas h2{
+  width: 50%;
+  float: left;
+  font-size: 16px;
+  opacity: 0.8;
+  text-align: right
+}
+.offcanvas_button{
+  width: 100%;
+  bottom: 0px;
+}
+.offcanvas_button button{
+  width: 47%;
+  bottom: 0px;
+  left: 0px;
+  float: left;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+.loader{
+  width: 96%;
+  margin-left: 2%;
+  height: auto;
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  box-shadow: 0px 0px 1px 1px rgba(18,17,17,0.117);
+}
+
+.gradient-skeleton-loader {
+width: 100%;
+height: 15px;
+display: block;
+background: linear-gradient(
+to right,
+rgba(255, 255, 255, 0),
+rgba(255, 255, 255, 0.2) 50%,
+rgba(255, 255, 255, 0) 80%
+),
+lightgray;
+background-repeat: repeat-y;
+background-size: 50px 200px; 
+background-position: 0 0;
+}
+
+.skeleton-loader {
+margin-bottom: 7px;
+margin-top: 7px;
+width: 100%;
+height: 20px;
+display: block;
+background: linear-gradient(
+to right,
+rgba(255, 255, 255, 0),
+rgba(255, 255, 255, 0.5) 50%,
+rgba(255, 255, 255, 0) 80%
+),
+lightgray;
+background-repeat: repeat-y;
+background-size: 50px 500px;
+animation: shine 0.5s infinite; 
+}
+@keyframes shine {
+to {
+background-position: 100% 0, /* move highlight to right */ 0 0;
+}
+}
+
+#skeleton1{
+  background-color: rgb(218,218,218);
+  
+}
+#skeleton2{
+  width: 60%;
+  margin-bottom: 5px;
+  height: 10px;
+}
+#skeleton3{
+  width: 80%;
+  margin-bottom: 5px;
+  height: 10px;
+}
+
+#skel1{
+  background-color: rgb(218,218,218);
+  height: 10px;
+  width: 30%;
+}
+#skel2{
+  width: 20%;
+  margin-bottom: 5px;
+  height: 40px;
+  float: left;
+  border-radius: 10px;
+}
+#skel3{
+  width: 40%;
+  margin-bottom: 5px;
+  height: 10px;
+  float: left;
+  margin-left: 40px;
+}
+#skel5{
+  width: 60%;
+  margin-bottom: 5px;
+  height: 10px;
+  float: left;
+  margin-left: 40px;
+}
+#skel4{
+  height: 5px;
+}
+.bg_header img{
+  width: 10%;
+  height: auto;
+  background-color: #26a69a;
+  float: left;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin-right: 5%;
+}
+.bg_header h3{
+  width: 85%;
+  float: left;
+  margin-top: 18px;
+  padding-bottom: 5px;
+  display: table;
+  font-weight: bold;
+  font-size: 18px;
+  vertical-align: middle;
+  border-bottom: 2px solid #26a69a;
+}
+#kategoriDetail{
+  font-size: 14;
+}
+.form-select{
+  width: 85%;
+  margin-left: 15%;
+  padding: 0;
+  border:none;
+  margin-top: -5px;
+  border-bottom: 2px solid #26a69a;
+  border-radius: 0;
+}
+.form-select p{
+  font-size: 16px;
+}
+
+.dropdown-menu{
+  width: 100%;
+  height: auto;
+  border: none;
+  box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.100);
+  max-height: 500px;
+  overflow-x: auto;   
+    scroll-snap-type: mandatory;   
+    scroll-behavior: smooth;   -webkit-overflow-scrolling: touch;
+}
+.row_pilihan h5{
+  font-size: 16px;
+  margin-left: 0px;
+  padding: 10px;
+  margin: 0;
+}
+.row_pilihan:hover{
+  background-color: rgb(227,227,227);
+}
+
+  </style>
+  <body style="background-color:#ededf5">
+<header class="header">
+  <div class="bg_header container">
+    <form action="" method="get" accept-charset="utf-8">
+      <p>No.Pengisian</p>
+      <input type="number" oninput="ceknomoruser()" name="" id="nomor-val" value="" required="" autofocus="" />
+       <small id="alertDeskripsi">Masukkan 10-12 karakter</small>
+    </form>
+  </div>
+  <div class="bg_header container" id="card-kategori">
+ <form action="" method="get" accept-charset="utf-8">
+   <p>Operator</p>
+   <img id="card-img-operator" src="https://i.postimg.cc/fRfrwjFj/20220708-141146.png" alt="" />
+   <div class="form-select form-select-lg mb-3 dropdown-center" aria-label=".form-select-lg example" data-bs-toggle="dropdown" aria-expanded="false">
+   <p id="kategori-pilihan">Nomor Pengisian Kosong</p>
+  <ul class="dropdown-menu" id="list-kategori">
+
+</ul>
+</div>
+      <div style="clear:both;">
+      </div>
+      <p style="margin-top:-15px; font-size:12px; padding-bottom:5px">klik untuk melihat produk lainya</p>
+    </form>
+  </div>
+</header>
+
+<div style="margin-top:-10px" class="container">
+  <ul class="list-group" id="list-produk">
+<li class="list-group-item d-flex justify-content-between align-items-center" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" id="diklik">Masukkan nomor tujuan</li>
+</ul>
+</div>
+
+<div class="container loader" id="loader-kategori">
+ <span class="skeleton-loader" id="skel1"></span>
+ <span class="skeleton-loader" id="skel2"></span>
+ <span class="skeleton-loader" id="skel3"></span>
+  <span class="skeleton-loader" id="skel5"></span>
+ <div style="clear:both;"></div>
+  <span class="skeleton-loader" id="skel4"></span>
+</div>
+
+
+<div class="container loader" id="load">
+ <span class="skeleton-loader" id="skeleton1"></span>
+ <span class="skeleton-loader" id="skeleton2"></span>
+ <span class="skeleton-loader" id="skeleton3"></span>
+ <br />
+  <span class="skeleton-loader" id="skeleton1"></span>
+ <span class="skeleton-loader" id="skeleton2"></span>
+ <span class="skeleton-loader" id="skeleton3"></span>
+ <br />
+  <span class="skeleton-loader" id="skeleton1"></span>
+ <span class="skeleton-loader" id="skeleton2"></span>
+ <span class="skeleton-loader" id="skeleton3"></span>
+</div>
+
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Detail Product</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+  <div class="body_konten_offcanvas">
+    <h1>No.Pengisian:</h1>
+    <h2 id="nomor-pengisian"></h2>
+  </div>
+  <div style="clear:both">
+    
+  </div>
+  <br />
+  <div class="body_konten_offcanvas">
+    <h1>Product:</h1>
+    <h2 id="nama"></h2>
+  </div>
+   <div style="clear:both">
+  </div>
+  <br />
+  <div class="body_konten_offcanvas">
+    <h1>Harga:</h1>
+    <h2 id="harga"></h2>
+  </div>
+   <div style="clear:both">
+  </div>
+  <hr />
+  <div class="body_konten_offcanvas">
+    <h1 style="font-weight:bold;">TOTAL:</h1>
+    <h2 id="total" style="font-weight:bold;"></h2>
+  </div>
+   <div style="clear:both">
+  </div>
+  <hr />
+  <div class="offcanvas_button">
+    <button data-bs-dismiss="offcanvas" aria-label="Close" style="background-color:rgb(125,125,125); color:white; box-shadow: 0px 1px 1px 1px rgb(199,199,199)" type="button">BATAL</button>
+    <a id="url-link" href="">
+     <button style="margin-left: 6%; background-color:#3949ab; color:white; box-shadow: 0px 1px 1px 1px rgb(199,199,199)" type="button">BELI</button>
+    </a>
+  </div>
+  
+  
+  
+  </div>
+ 
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+$("#alertDeskripsi").hide();
+$("#loader-kategori").hide();
+$("#load").hide();
+// YUK, BANTU JUAL SC INI KEPADA TEMAN KAMU DAN DAPATKAN PENGHASILAN 40% DARI PENJUALAN SC. BERGABUNGLAH MENJADI MITRA ESAKU.
+let web = "https://liveash.my.id/api/public/v2/api/";
+  
+  // KODE AKTIVASI ESAKU
+  var aktivasi = "4d88fb449326d82d2f35f2ce5f50c04f068b20d2e89bb4d8ea1d89512d19e7cb";
+  
+  // SC INI DIBUAT OLEH ESAKU, DAN ESAKU TIDAK BERTANGGUNG JAWAB KEPADA MITRA YANG MENJUAL SC INI, PADA DASARNYA MITRA ESAKU AKAN MENDAPATKAN KODE AKTIVASI YANG BISA DIGUNAKAN, JIKA ANDA TIDAK MENDAPATKAN KODE AKTIVASI SUDAH DIPASTIKAN ITU  BUKAN MITRA ESAKU
+  var hallo = "JASA-ESAKU";
+  
+  // kode kategori bukaolshop website anda
+  /*
+  CARA PAKAI SC PULSA.
+  AMBIL URL KATEGORI WEBSITE BUKAOLSHOP KALIAN, KEMUDIAN MASUKKAN KODE KATEGORI NYA.
+  CONTOH URL WEBSITE :: https://venuss.my.id/kategori/pulsa-indosat-309664
+  AMBIL ID KATEGORI DI BAGIAN BELAKANG 
+  CONTOH HASIL KODE KATEGORI :: pulsa-indosat-309664
+  .
+  CATATAN:; 
+  PADA DASARNYA SETIAP KODE KATEGORI AKAN MENAMPILKAN MAKSIMAL 12 PRODUK, TAPI JIKA ANDA INGIN MENAMPILKAN LEBIH DARI 12 PRODUK, BUATLAH KATEGORI SATU DAN DUA KEMUDIAN JALANKAN SCRIPT SECARA BERSAMAAN, JIKA ANDA MENGALAMI KEBINGUNVAN HUBUNGI PENJUAL SC.
+  */
+
+// data data yang akn di cetak  
+let data= [
+  {
+    
+    // pulsa indosat
+     "indosat" : [
+      {
+      "nama" : "pulsa indosat transfer",
+      "url" : "#",
+      "gambar" : "https://i.ibb.co/LSrHYyT/icon-512x512.png",
+    },
+    
+    ],
+    
+    
+    // pulsa telkomsel
+    "telkomsel" : [
+      {
+      "nama" : "pulsa telkomsel transfer",
+      "url" : "telkomsel-431457",
+      "gambar" : "https://i.ibb.co/1zNqBp0/images-3.jpg",
+    },
+    
+    ],
+    
+    
+     // pulsa three
+    "tri" : [
+      {
+      "nama" : "pulsa three transfer",
+      "url" : "#",
+      "gambar" : "https://i.ibb.co/t4NzrHC/images-6.jpg",
+    },
+    
+    ],
+    
+    
+     // pulsa xl
+    "xl" : [
+      {
+      "nama" : "pulsa xl transfer",
+      "url" : "#",
+      "gambar" : "https://i.ibb.co/FmRjnpX/images-4-1.jpg",
+    },
+    
+    ],
+    
+     // pulsa axis
+    "axis" : [
+      {
+      "nama" : "pulsa axis transfer",
+      "url" : "#",
+      "gambar" : "https://i.ibb.co/GMJB6G3/images-5-1.jpg",
+    },
+    
+    ],
+    
+    
+     // pulsa smartfren
+    "smartfren" : [
+      {
+      "nama" : "pulsa smartfren transfer",
+      "url" : "#",
+      "gambar" : "https://i.ibb.co/7krPHnP/images-2-1.jpg",
+    },
+    
+    ],
+    
+    
+    // pulsa Byu
+    "byu" : [
+      {
+      "nama" : "pulsa byu transfer",
+      "url" : "#",
+      "gambar" : "https://i.ibb.co/Lh5g14X/images-6.png",
+    },
+    
+    ],
+    
+    
+    
+  }
+  
+  ];
+
+  // url web
+  var url = web+hallo+"/"+aktivasi+"/";
+
+// keluarkan kategori
+function kategori(index, val){
+  var kategori = data[index].val;
+  return kategori;
+}
+
+// looping tampilan desain list produk
+function looping(lopp){
+  $.each(lopp, function(i, data){
+     $('#list-produk').append(`<li class="list-group-item d-flex justify-content-between align-items-center" onclick="diklik('`+data.nama+`'`+','+` '`+data.harga+`' `+','+`'`+data.url+`')" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" id="diklik">`+data.nama+`<span class="badge rounded-pill">`+data.harga+`</span>  </li>`);
+      });
+   $("#load").hide();
+}
+
+// simpan data api
+var dataApi = [];  
+// request api
+function getApi(dataKategori){
+let filter = "&urutan=murah";
+let val = 1;
+let nomPage = val;
+var filPage = "&page=";
+
+$.getJSON(url+dataKategori+filPage+nomPage+filter, function(data){
+ let barang = data.produk;
+ dataApi = barang;
+ let dataApi2;
+ 
+ // jika data produk sama dengab 12
+ if (dataApi.length == 12) {
+    nomPage = val+1;
+     $.getJSON(url+dataKategori+filPage+nomPage+filter, function(data){
+       for (var i = 0; i < data.produk.length; i++) {
+         dataApi.push(data.produk[i]);
+       }
+     if (dataApi.length == 24) {
+    nomPage = val+2;
+     $.getJSON(url+dataKategori+filPage+nomPage+filter, function(data){
+       for (var i = 0; i < data.produk.length; i++) {
+         dataApi.push(data.produk[i]);
+       }
+       if (dataApi.length == 36) {
+    nomPage = val+2;
+     $.getJSON(url+dataKategori+filPage+nomPage+filter, function(data){
+       for (var i = 0; i < data.produk.length; i++) {
+         dataApi.push(data.produk[i]);
+       }
+       looping(dataApi);
+    });
+ }
+ else{
+  looping(dataApi); 
+ }
+    });
+ }
+ else{
+   looping(dataApi);
+ }
+    });
+ }
+ else{
+ looping(dataApi);
+ }
+});
+};
+
+
+
+
+// cek kategori dan cetak di html
+function cekKategori(operator){
+var kategori = data[0][operator];
+$("#kategori-pilihan").html(data[0][operator][0].nama);
+document.getElementById("card-img-operator").src = data[0][operator][0].gambar;
+  $.each(kategori, function(i, data){
+     $('#list-kategori').append(`<li class="kategori_produk" onclick="dataklik('`+data.url+`', '`+data.nama+`', '`+data.gambar+`')"><div class="container row_pilihan"><h5>`+data.nama+`</h5></div></li>`);
+      });
+     $("#list-group-item").remove();
+     getApi(data[0][operator][0].url);;
+     $("#loader-kategori").hide();
+};
+
+
+
+// cek nomor operator user
+function ceknomoruser(){
+  let b = document.getElementById("nomor-val").value;
+  let loader = document.getElementById("load");
+  let loadKategori = document.getElementById("loader-kategori");
+  let img = document.getElementById("card-img-operator");
+  let nomor = b;
+  let nomorr = b;
+  console.log(nomor);
+  if(nomorr == "08"){
+    $("#loader-kategori").show();
+    $("#card-kategori").hide();
+    loader.style = "display: none";
+    img.src = "url gambar disinu"; // img default
+   $('li').remove();
+   $("#kategori-pilihan").html(`Masukkan Nomor Dengan Benar`);
+   // telkomsel
+  }else if(nomor === '0811' || nomor === '0812' || nomor === '0813' || nomor === '0821' || nomor === '0822' || nomor === '0852' || nomor === '0853' || nomor === '0823' || nomor === '0835'){
+    $("#loader-kategori").hide();
+    $("#card-kategori").show();
+    loader.style = "display: block";
+    $("li").ready(function(){
+      $("li").remove();
+     cekKategori("telkomsel");
+  });
+  
+  // Indosat
+  }else if(nomor === '0814' || nomor === '0815' || nomor === '0816' || nomor === '0855' || nomor === '0856' || nomor === '0857' || nomor === '0858'){
+    $("#loader-kategori").hide();
+    $("#card-kategori").show();
+    loader.style = "display: block";
+     $("li").ready(function(){
+      $("li").remove();
+     cekKategori("indosat");
+    });
+    
+    // xl axiata
+  }else if(nomor === '0818' || nomor === '0817' || nomor === '0819' || nomor === '0859' || nomor === '0877' || nomor === '0878'){
+    $("#loader-kategori").hide();
+    $("#card-kategori").show();
+    loader.style = "display: block";
+     $("li").ready(function(){
+     $("li").remove();
+    cekKategori("xl");
+ 
+    });
+    
+    // axis
+  }else if(nomor === '0838' || nomor === '0831' || nomor === '0832' || nomor === '0833'){
+    $("#loader-kategori").hide();
+    $("#card-kategori").show();
+    loader.style = "display: block";
+     $("li").ready(function(){
+     $("li").remove();
+   cekKategori("axis");
+    });
+    
+    // tri 
+  }else if(nomor === '0895' || nomor === '0896' || nomor === '0897' || nomor === '0898' || nomor === '0899' ){
+    $("#loader-kategori").hide();
+    $("#card-kategori").show();
+    loader.style = "display: block";
+     $("li").ready(function(){
+      $("li").remove();
+    cekKategori("tri");
+    });
+    
+    // Smartfren
+  }else if(nomor === '0881' || nomor === '0882' || nomor === '0883' || nomor === '0884' || nomor === '0885' || nomor === '0886' || nomor === '0887' || nomor === '0888' || nomor === '0889'){
+    $("#loader-kategori").hide();
+    $("#card-kategori").show();
+    loader.style = "display: block";
+     $("li").ready(function(){
+      $("li").remove();
+      cekKategori("smartfren");
+
+    });
+   
+   
+    // Byu
+  }else if(nomor === '0851' || nomor === '' || nomor === '' || nomor === '' || nomor === '' || nomor === '' || nomor === '' || nomor === '' || nomor === ''){
+    $("#loader-kategori").hide();
+    $("#card-kategori").show();
+    loader.style = "display: block";
+     $("li").ready(function(){
+      $("li").remove();
+      cekKategori("byu");
+
+    });
+    
+  }else if(  nomor === '0' || nomor === ' ' || nomor === null){
+     $("li").remove();
+    $("#card-kategori").show();
+    $("#loader-kategori").hide();
+    loader.style = "display: none";
+    $("#list-produk").html(`<li class="list-group-item d-flex justify-content-between align-items-center" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" id="diklik">Masukkan nomor tujuan</li>`);
+  }else if(nomor === 123 || nomor === 9288){
+    $("li").remove();
+    $("#card-kategori").show();
+    $("#loader-kategori").hide();
+    img.src = "url gambar disinu"; // img saat operator tidak terdeteksi
+    loader.style = "display: none";
+     $("li").remove();
+    $("#list-produk").html(`<li class="list-group-item d-flex justify-content-between align-items-center" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" id="diklik">Masukkan nomor tujuan</li>`);
+  }else if(nomor.length < 10){
+    $("#alertDeskripsi").show();
+  }else if(nomor.length > 10){
+    $("#alertDeskripsi").hide();
+  }else if(nomor.length === 1){
+    $("#alertDeskripsi").hide();
+  }
+  
+}
+
+
+ 
+// saat data kategori di klik
+function dataklik(url, nama, gambar){
+  let img = document.getElementById("card-img-operator");
+  $(".list-group-item").remove();
+  $("#load").show();
+  img.src = gambar;
+  $("#kategori-pilihan").html(nama);
+  getApi(url);
+}
+
+
+    
+
+// saat data produk di klik
+function diklik(nama, harga, url){
+//  alert(nama +  "dan" + harga +"Url " + url);
+var nomor = document.getElementById("nomor-val").value;
+var tujuan = document.getElementById("url-link");
+if(nomor.length < 10){
+  alert("nomor anda tidak valid");
+}else{
+$("#nomor-pengisian").html(nomor);
+  $("#nama").html(nama);
+   $("#harga").html(harga);
+$("#total").html(harga);
+tujuan.href = url+"?catatan="+nomor;
+}
+};
+
+</script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
