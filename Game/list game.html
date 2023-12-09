@@ -1,345 +1,426 @@
-﻿<!DOCTYPE html>
-<html lang="in">
+
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <title>List Game</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500&display=swap" rel="stylesheet">
- 
-<!-- PUBLIC CSS || FLAMid Comment -->
-<!-- EDIT CSS DIBAGIAN INI || FLAMid Comment -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;500;600;700&family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1…
+[04:48, 09/12/2023] CodingAsik Official: <!DOCTYPE HTML>
+<html lang="en">
+<meta charset="utf-8">
+<title>Game & Voucher</title>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-
-<style>
-    body, html {
-        width: 100%;
-        overflow-x: hidden;
+    /* Ganti semua Warna Sekaligus */
+    :root {
+      /* Kode Warna Dasar Utama */
+      --my-color: #1565c0;
+      --black-color: #000000;
+      --gray-color: gray;
+      --white-color: #ffffff;
+      --alice-color: aliceblue;
+      --orange-color: orangered;
+      --animate-duration: 200ms;
     }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
     body {
-        background: #2196F3;
-        transition: 0.4s;
-        padding: 0;
-        margin: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--alice-color);
+      user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      padding: 0;
+      margin: 0;
+      animation: fade-in 2s linear;
     }
-    .flamC-utama {
-        color: #357523;
-    }
-    .flamB-utama {
-        background: #1565C0;
-        transition: 0.4s;
-    }
-    .flamBT-orange {
-    background: #212429;
-    }
-    .flamBT-b06a00 {
-    background: #b06a00;
-    }
-    .flamListS .flamButton2 {
-    background: #212429;
-    }
-    .flamListS {
-    height: 154px;
-    }
-    #flamSearch {
-    background: #212429;
-    }
-    .flamPetunjuk {
-     background: #e76927;
-     color: white;
-     transition: 0.4s;
-     }
-     .flamPetunjuk:hover {
-         border: 2px solid #a0561bea;
-         transition: 0.4s;
-     }
-     #flamBClose4 {
-     background: #df6e13;
-     color: white;
-     transition: 0.4s;
-     }
-     #flamBClose4:hover {
-         border: 2px solid #a0561bea;
-         transition: 0.4s;
-     }
-    
-</style>
 
-
-<!-- PRIVATE CSS || FLAMid Comment -->
-<!-- DILARANG EDIT CSS DIBAGIAN INI || FLAMod Comment -->
-
-
-<style>
-    .flamPadd {padding-left: 4%;padding-right: 4%;}
-    .flamPadd2 {padding: 4%;}
-    .flamPadd4 {padding-left: 2%;padding-right: 2%;}
-    .flamB-white {background: white;transition: 0.4s;}
-    .flamFont {font-family: Poppins;}
-    #flamNavigasi {position: fixed;top: 0;left: 0;width: 100%;padding: 2%;padding-left: 4%;padding-right: 4%;z-index: 1;}
-    #flamNavigasi img {width: 30%;}
-    #flamNavigasi .fa-toggle-off {position: absolute;left: 40%;bottom: 28%;font-size: 20px;transition: 0.4s;}
-    #flamNavigasi .fa-toggle-on {position: absolute;color: #0d6dfd;left: 40%;bottom: 28%;font-size: 20px;transition: 0.4s;}
-    #flamNavigasi span {position: relative;right: 8%;border-radius: 8px;border: 1.4px solid #383b40;padding: 2%;padding-top: 0.8%;padding-bottom: 0.8%;color: #939598;font-size: 28px;transition: 0.4s;}
-    #flamNavigasi .fa:hover {color: #0d6dfd;border-radius: 28px;transition: 0.4s;}
-    #flamNavigasi #flamMenu82726:hover {border: 2.8px solid white;transition: 0.4s;}
-    #flamInput {width: 100%;background: white;padding: 3%;border-radius: 6px 0 0 6px;padding-right: 0;padding-left: 4%;outline: none;border: 0.8px solid #cfd4d9;}
-    #flamSearch {width: 100%;border-radius: 0 6px 6px 0;padding: 12.8%;padding-left: 0;padding-right: 0;color: white;border: none;}
-    #flamSearch small {position: relative;top: 2px;}
-    .flamC-white {color: white;}
-    .flamTable {width: 100%;}
-    .flamFloatRight {float: right;}
-    .flamNone {display: none;}
-    .flamBr {padding: 1%;}
-    .flamMenuS button {padding: 2.8%;padding-left: 4%;padding-right: 4%;padding-top: 2.8%;color: white;border-radius: 6px;border: none;transition: 0.4s;}
-    .flamNoneS {display: none;}
-    #flamFixed img {position: fixed;left: 86%;bottom: 10%;}
-    #flamFixed img {width: 12%;background: white;border-radius: 8px;}
-    .flamListS {width: 30%;border-radius: 6px;padding: 2%;padding-top: 0;padding-bottom: 0;box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);margin: 0.8%;margin-bottom: 20%;}
-    .flamListS center {position: relative;bottom: 50px;}
-    a {text-decoration: none;outline: none;}
-    .flamC-grey {color: grey;}
-    .flamBorder-grey {border: 1px solid #1d2025;}
-    .flamBorder-f1 {border: 1px solid #cbcdcf;}
-    .flamListS img {position: relative;width: 100%;bottom: 50px;}
-    .flamListS .flamButton2 {width: 72%;padding: 2%;text-align: center;color: white;border-radius: 28px;border: none;}
-    .flamNoneS {animation: 0.8s flamid;}
-    @keyframes flamid {
-        0% {opacity: 0;}
-        100% {opacity: 1;}
+    .container {
+      padding-left: 10px;
+      padding-right: 10px;
     }
-    .flamGang {padding: 2%;}
-    .flamC-black {color: black;}
-    .flamPetunjuk {padding: 2%;padding-left: 4%;padding-right: 4%;border-radius: 4px;border: none;margin-top: 4%;}
-    .flamFloatRight {float: right;}
-    .flamHr4 {background: white;width: 100%;height: 1.4px;}
-    .flamFont {font-family: Poppins;}
-    #flamPopPetunjuk {position: fixed;width: 100%;left: 0;top: -120%;background: transparent;transition: 0.8s;height: 100%;z-index: 1;}
-    #flamPopPetunjuk img {width: 100%;}
-    #flamBClose4 {padding: 2%;padding-left: 4%;padding-right: 4%;border-radius: 4px;margin-bottom: 4%;font-size: 14px;border: none;}
-    .flamScroll {overflow: scroll;height: auto;}
-    .swiper-pagination {position: relative;top: 8px}
-    a {cursor: none;outline: none;}
-    .flamNone {display: none;}
-    .flamC-white {color: white;}
-    .flamC-grey {color: grey;}    
-</style>
+
+    .Codingasik-grid {
+      list-style: none;
+      margin: 0;
+      padding: 0px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      max-width: 100%;
+      margin-top: 0px;
+    }
+
+    .game {
+      background: white;
+      padding-bottom: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 0px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 15px;
+      width: 90%;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .head-game {
+      width: 70%;
+      padding: 4px;
+      background: var(--my-color);
+      border-radius: 0px 0px 15px 15px;
+    }
+
+    .game img {
+      width: 75%;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+
+    .game p {
+      font-size: 10px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      font-weight: 700;
+      color: var(--black-color);
+      opacity: .7;
+    }
+
+    .game button {
+      background: var(--my-color);
+      color: white;
+      width: 100%;
+      border: none;
+      padding: 5px;
+      border-radius: 6px;
+    }
+
+    .serch-form {
+      background: var(--my-color);
+      padding: 10px;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      z-index: 1000000;
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      outline: none;
+      padding: 12px;
+      font-size: 14px;
+      border-radius: 10px;
+      width: 100%;
+      font-weight: bold;
+      border: 2px solid #e0e0e0;
+    }
+
+    input:focus {
+      border: 2px solid var(--my-color);
+    }
+
+    .fa-search {
+      position: absolute;
+      right: 30px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .tab-button {
+      cursor: pointer;
+      background: white;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      width: 100%;
+      border: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .active-tab-button {
+  background: var(--my-color);
+  color: white;
+}
+    .tabs{
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+  </style>
 </head>
-<body><br/><br/><div class="flamBr"></div>
-    
-    
-    
-    <br/><div class="flamPadd4"><table class="flamTable">
-        <tr>
-            <td style="width: 86%;">
-                <input type="text" id="flamInput" placeholder="Ketik Nama Game ..." class="flamFont">
-            </td>
-            <td style="width: 14%;">
-                <button id="flamSearch" class="flamSearch"><small class="material-icons">search</small></button>
-            </td>
-        </tr>
-    </table></div>
-    
-    <!-- MENU TOPUP || FLAMid Comment -->
-    <div id="flamMenu-1" class="flamPadd4"><div class="flamPencarianS"><br/><br/><br/>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/25V2QWY/3.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/200777"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Mobile Legend : Bang Bang</i></b></small>
-            </center>
-        </button>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/wrPhCfj/5.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/200739"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Free Fire</i></b></small>
-            </center>
-        </button>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/qYDwbMM/9.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/206864"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Call Of Duty Mobile</i></b></small>
-            </center>
-        </button>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/FVW4Pbz/4.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/200599"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Arena Of Valor</i></b></small>
-            </center>
-        </button>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/dPKLhkH/2.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/200598"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Genshin Impact</i></b></small>
-            </center>
-        </button>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/p1wPbPQ/8.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/206865"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Dragon Raja</i></b></small>
-            </center>
-        </button>
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/fX7TR81/10.png" alt="FLAMid">
-            <center>
-                <a href="#"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Sausage Man</i></b></small>
-            </center>
-        </button>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/fFXj3pG/1.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/206866"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Valorant</i></b></small>
-            </center>
-        </button>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/SRXZ8Dm/6.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/213079"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Super Sus</i></b></small>
-            </center>
-        </button>
-        
-        <!-- LIST DOUBLE || FLAMid Comment -->
-        <button class="flamB-utama flamListS flamFont flamBorder-grey flamC-white">
-            <img src="https://i.ibb.co/KqYn85p/7.png" alt="FLAMid">
-            <center>
-                <a href="https://bulusgaming.bukaolshop.site/digital/206867"><div class="flamButton2">Top Up</div></a>
-                <div class="flamGang"></div>
-                <div class="flamGang"></div>
-                <small class="flamC-grey flamFont">Bulus Gaming</small>
-                <div class="flamGang"></div>
-                <small class="flamFont"><b><i>Garena Undawn</i></b></small>
-            </center>
-        </button>
-        
-        
-        
-        
-        
-    </div></div>
-    <!-- AKHIR MENU INI YA || FLAMid Comment -->
-    
-    <!-- BAGIAN NAVIGASI ATAS BODY || FLAMid Comment  -->
-    
-    <div id="flamNavigasi" class="flamB-utama">
-        
-       
-        <img src="https://i.ibb.co/KNtXLdW/20230726-000848-0000.png" alt="FLAMid">
-        
-        
+
+<body>
+
+
+  <div class="serch-form">
+    <input type="text" class="form-search" id="value" placeholder="Cari Game Favoritmu...">
+    <i class="fas fa-search"></i>
+  </div>
+
+<div class="container">
+  <div class="tabs">
+    <button class="tab-button active-tab-button" onclick="showTab('tab1')">TopUp Game</button>
+</div>
+</div>
+
+
+
+<div id="tab1" class="tab-content active">
+  <div class="container">
+    <div class="Codingasik-grid">
+
+      <div class="game codingasik" onclick="MobileLegends()">
+        <center>
+          <div class="head-game"></div>
+        </center>
+        <img src="https://codingasik.my.id/icon/Game/MobileLegends.png" alt="">
+        <p class="name">Mobile Legends</p>
+      </div>
+
+      <div class="game codingasik" onclick="FreeFire()">
+        <center>
+          <div class="head-game"></div>
+        </center>
+        <img src="https://codingasik.my.id/icon/Game/FreeFire.png" alt="">
+        <p class="name">Free Fire</p>
+      </div>
+
+      
+
+      <div class="game codingasik" onclick="Undawn()">
+        <center>
+          <div class="head-game"></div>
+        </center>
+        <img src="https://codingasik.my.id/icon/Game/Undawn.png" alt="">
+        <p class="name">Undawn</p>
+      </div>
+
+      <div class="game codingasik" onclick="Cod()">
+        <center>
+          <div class="head-game"></div>
+        </center>
+        <img src="https://codingasik.my.id/icon/Game/CallOfDuty.png" alt="">
+        <p class="name">Call Of Duty</p>
+      </div>
+
+      
+
+      <div class="game codingasik" onclick="GenshinImpact()">
+        <center>
+          <div class="head-game"></div>
+        </center>
+        <img src="https://codingasik.my.id/icon/Game/GenshinImpact.png" alt="">
+        <p class="name">Genshin Impact</p>
+      </div>
+
+      <div class="game codingasik" onclick="DragonRaja()">
+        <center>
+          <div class="head-game"></div>
+        </center>
+        <img src="https://codingasik.my.id/icon/Game/DragonRaja.png" alt="">
+        <p class="name">Dragon Raja</p>
+      </div>
+
+      
+
+      <div class="game codingasik" onclick="Aov()">
+        <center>
+          <div class="head-game"></div>
+        </center>
+        <img src="https://codingasik.my.id/icon/Game/Aov.png" alt="">
+        <p class="name">AOV</p>
+      </div>
+
+      
+
+     
+
+      <div class="game codingasik" onclick="Supersus()">
+        <center>
+          <div class="head-game"></div>
+        </center>
+        <img src="https://codingasik.my.id/icon/Game/Supersus.png" alt="">
+        <p class="name">Supersus</p>
+      </div>
     </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <br />
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Mobile Legends
+    function MobileLegends() {
+      window.location.href =
+        "https://bulusgaming.bukaolshop.site/digital/200777"
+    }
+
+    // Free Fire
+    function FreeFire() {
+      window.location.href =
+        "https://bulusgaming.bukaolshop.site/digital/200739"
+    }
+
+    // Pubg Mobile
+    function PubgMobile() {
+      window.location.href =
+        "https://gamekuy.tokowebku.com/digital/253104"
+    }
+
+    // Undawn
+    function Undawn() {
+      window.location.href =
+        "https://bulusgaming.bukaolshop.site/digital/206867"
+    }
+
+    // Call Of Duty
+    function Cod() {
+      window.location.href =
+        "https://bulusgaming.bukaolshop.site/digital/206864"
+    }
+
+    // Metal Slug Awakening
+    function MetalSlug() {
+      window.location.href =
+        "https://gamekuy.tokowebku.com/digital/253107"
+    }
+
+    // Life After
+    function LifeAfter() {
+      window.location.href =
+        "https://gamekuy.tokowebku.com/digital/253108"
+    }
+
+    // Sausageman
+    function Sausageman() {
+      window.location.href =
+        "https://gamekuy.tokowebku.com/digital/253109"
+    }
+
+    // Genshin Impact
+    function GenshinImpact() {
+      window.location.href =
+        "https://bulusgaming.bukaolshop.site/digital/200598"
+    }
+    // Dragon Raja SEA
+    function DragonRaja() {
+      window.location.href =
+        "https://bulusgaming.bukaolshop.site/digital/206865"
+    }
+
+    // LordMobile
+    function LordMobile() {
+      window.location.href =
+        "https://gamekuy.tokowebku.com/digital/253112"
+    }
+
+    // Arena Of Valor
+    function Aov() {
+      window.location.href =
+        "https://bulusgaming.bukaolshop.site/digital/200599"
+    }
+    // One Punch Man
+    function Opm() {
+      window.location.href =
+        "https://gamekuy.tokowebku.com/digital/253114"
+    }
+
+    // Marvel Super War
+    function Marvel() {
+      window.location.href =
+        "https://gamekuy.tokowebku.com/digital/253115"
+    }
+
+
+    // SuperSus
+    function Supersus() {
+      window.location.href =
+        "https://bulusgaming.bukaolshop.site/digital/213079"
+    }
+
+  </script>
+
+
+
+
+
+
+
+
+  <script>
     
-    <!-- SYSTEM UTAMA || FLAMid Comment -->
-    <!-- DILARANG EDIT DIBAGIAN INI || FLAMid Comment -->
-
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-      spaceBetween: 30,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      autoplay: {
-        delay: 2000,
-      },
-    });
-    </script>
-    <script>
-        $("#flamSearch").on("click", function() {
-    var value = $("#flamInput").val().toLowerCase();
-    $(".flamPencarianS button").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
+function showTab(tabId) {
+  // Remove 'active' class from all tab buttons
+  var tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(function (button) {
+    button.classList.remove('active-tab-button');
   });
-    </script>
-    <script>
-        function flamOff() {
-           document.getElementById("flamOn").style.display="block"; document.getElementById("flamOff").style.display="none";
-            document.body.style.background="#f7f9fb";
-            document.getElementById("flamBannerBackground").style.background="white";
-            $("#flamNavigasi").addClass("flamB-white").removeClass("flamB-utama");
-            $(".flamListS").addClass("flamB-white").removeClass("flamB-utama").addClass("flamC-black").removeClass("flamC-white").removeClass("flamBorder-grey").addClass("flamBorder-f1");
-            document.getElementById("flamMenu82726").style.border="1.4px solid #f1f1f1";
-            }
-        function flamOn() {
-           document.getElementById("flamOn").style.display="none"; document.getElementById("flamOff").style.display="block";
-            document.body.style.background="#212429";
-            document.getElementById("flamBannerBackground").style.background="#212429";
-            $("#flamNavigasi").removeClass("flamB-white").addClass("flamB-utama");
-            $(".flamListS").removeClass("flamB-white").addClass("flamB-utama").addClass("flamC-white").removeClass("flamC-black").addClass("flamBorder-grey").removeClass("flamBorder-f1");
-            document.getElementById("flamMenu82726").style.border="1.4px solid #383b40";
-        }
-        $("#flamOff").click();
-    console.warn("Gunakan Console ini dengan baik tanpa merugikan orang lain atau pihak lain");console.warn("Made By @FLAMid");console.log("Username Telegram Owner = @FLAMid");console.info("SERVER : [NORMAL][200] ;");
-    </script>
-    
+
+  // Add 'active' class to the selected tab button
+  var selectedButton = document.querySelector('[onclick="showTab(\'' + tabId + '\')"]');
+  selectedButton.classList.add('active-tab-button');
+
+  // Hide all tab content
+  var tabs = document.querySelectorAll('.tab-content');
+  tabs.forEach(function (tab) {
+    tab.classList.remove('active');
+  });
+
+  // Show the selected tab content
+  var selectedTab = document.getElementById(tabId);
+  selectedTab.classList.add('active');
+  
+}
+
+    document.getElementById("value").addEventListener("keyup", filterSearch); function filterSearch() { var value, name, codingasik, i; value = document.getElementById('value').value.toUpperCase(); codingasik = document.getElementsByClassName('codingasik'); for (i = 0; codingasik.length; i++) { name = codingasik[i].getElementsByClassName('name'); if (name[0].innerHTML.toUpperCase().indexOf(value) > -1) { codingasik[i].style.display = "block"; } else { codingasik[i].style.display = "none"; } } }
+  </script>
 </body>
+
 </html>
